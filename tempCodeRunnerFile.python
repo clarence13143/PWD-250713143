@@ -1,0 +1,81 @@
+# GD_02_A_13143_13216
+
+mahasiswa = []
+
+def tambah_mahasiswa():
+    npm = input("NPM\t: ")
+    nama = input("Nama\t: ")
+    jurusan = input("Jurusan\t: ")
+
+    data={
+        "npm": npm,
+        "nama": nama,
+        "jurusan": jurusan
+    }
+
+    mahasiswa.append(data)
+
+    print("data mahasiswa berhasil ditambahkan")
+
+def tampilkan_mahasiswa():
+    print("\n\t=== DATA MAHASISWA ===")
+    return
+
+    if len(mahasiswa) == 0:
+        print("belum ada data mahasiswa.")
+        return
+
+    for i, data in enumerate(mahasiswa, start=1):
+        print(f"{i}. {data.get('npm')} | "
+              f"{i}. {data.get('nama')} | "
+              f"{i}. {data.get('jurusan')}")
+
+
+def cari_mahasiswa():
+    print("\n=== CARI MAHASISWA ===")
+
+    npm_cari = input("masukan NPM: ")
+
+    for data in mahasiswa:
+        if data.get("npm")== npm_cari:
+            print ("\n Mahasiswa ditemukan!")
+            print(f"NPM\t: {data.get('npm')}")
+            print(f"Nama\t: {data.get('nama')}")
+            print(f"Jurusan\t: {data.get('jurusan')}")
+            return
+    print ("Mahasiswa tidak ditemukan. ")
+
+def main():
+    while True:
+        print("\n=====================")
+        print("\n=== DATA MAHASISWA ===")
+        print("=====================")
+        print("1. Tambah Mahasiswa")
+        print("2. Tampilkan Mahasiswa")
+        print("3. Cari Mahasiswa")
+        print("4. Keluar")
+        print("=====================")
+
+        try:
+            pilihan = int(input("Pilih menu : "))
+
+            if pilihan == 1:
+                tambah_mahasiswa()
+
+            elif pilihan == 2:
+                tampilkan_mahasiswa()
+
+            elif pilihan == 3:
+                cari_mahasiswa()
+
+            elif pilihan == 4:
+                print("Terima kasih telah menggunakan program ini.")
+                break
+            else:
+                print("Pilihan tidak valid. Silakan pilih menu yang tersedia.")
+
+        except ValueError:
+            print("Input tidak valid. Silakan masukkan angka.")
+
+if __name__ == "__main__":
+    main()
